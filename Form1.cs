@@ -8,6 +8,7 @@ namespace ArreglosMultidimensionales_G2_2024_II
     {
         Multidimensional m1;
         Multidimensional m2;
+        bool cambioOperando = false;
 
         public Form1()
         {
@@ -16,10 +17,22 @@ namespace ArreglosMultidimensionales_G2_2024_II
 
         private void txtbDisplay_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if( e.KeyChar == (Char)Keys.Enter)
+            if (e.KeyChar == (Char)Keys.Enter)
             {
-                m1 = Multidimensional.Leer(txtbDisplay.Text);
-                lbOperando1.Text = m1.ToString();
+                if (!cambioOperando)
+                {
+                    m1 = Multidimensional.Leer(txtbDisplay.Text);
+                    lbOperando1.Text = m1.ToString();
+                    cambioOperando = true;
+                }
+                else
+                {
+                    m2 = Multidimensional.Leer(txtbDisplay.Text);
+                    lbOperando2.Text = m2.ToString();
+                    cambioOperando = false;
+                }
+
+
             }
 
         }
