@@ -8,6 +8,7 @@ namespace ArreglosMultidimensionales_G2_2024_II
     {
         Multidimensional m1;
         Multidimensional m2;
+        Multidimensional m3;
         bool cambioOperando = false;
 
         public Form1()
@@ -35,6 +36,12 @@ namespace ArreglosMultidimensionales_G2_2024_II
 
             }
 
+        }
+
+        private void btnSuma_Click(object sender, EventArgs e)
+        {
+            m3 = m1 + m2;
+             lbResultado.Text = m3.ToString();
         }
     }
 }

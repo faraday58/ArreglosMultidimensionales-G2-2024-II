@@ -62,5 +62,19 @@ namespace ArreglosMultidimensionales_G2_2024_II
         }
 
 
+        public static Multidimensional operator +(Multidimensional m1, Multidimensional m2)
+        {
+            Multidimensional m3 = new Multidimensional(m1.M, m1.N);
+
+            for (int i = 0; i < m3.M; i++)
+            {
+                for (int j = 0; j < m3.N; j++)
+                {
+                    m3.A[i, j] = m1.A[i, j] + m2.A[i, j];
+                }
+            }
+
+            return m3;
+        }
     }
 }
