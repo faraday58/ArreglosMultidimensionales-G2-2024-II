@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -22,6 +23,13 @@ namespace ArreglosMultidimensionales_G2_2024_II
             {
                 try
                 {
+                    if( txtbDisplay.Text == "")
+                    {
+                        string error = "No debes dejar dejar el display " +
+                            "sin un valor de la matriz";
+                        throw new ApplicationException(error);
+                    }
+
 
                     if (!cambioOperando)
                     {
@@ -36,6 +44,13 @@ namespace ArreglosMultidimensionales_G2_2024_II
                         cambioOperando = false;
                     }
                 }
+                catch(ApplicationException error)
+                {
+                    MessageBox.Show("Error: " + error.Message, "Error Personalizado",
+                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
                 catch (FormatException error)
                 {
                     MessageBox.Show("Error: " + error.Message, "Error de Formato",
