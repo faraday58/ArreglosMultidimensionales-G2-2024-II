@@ -20,17 +20,35 @@ namespace ArreglosMultidimensionales_G2_2024_II
         {
             if (e.KeyChar == (Char)Keys.Enter)
             {
-                if (!cambioOperando)
+                try
                 {
-                    m1 = Multidimensional.Leer(txtbDisplay.Text);
-                    lbOperando1.Text = m1.ToString();
-                    cambioOperando = true;
+
+                    if (!cambioOperando)
+                    {
+                        m1 = Multidimensional.Leer(txtbDisplay.Text);
+                        lbOperando1.Text = m1.ToString();
+                        cambioOperando = true;
+                    }
+                    else
+                    {
+                        m2 = Multidimensional.Leer(txtbDisplay.Text);
+                        lbOperando2.Text = m2.ToString();
+                        cambioOperando = false;
+                    }
                 }
-                else
+                catch (FormatException error)
                 {
-                    m2 = Multidimensional.Leer(txtbDisplay.Text);
-                    lbOperando2.Text = m2.ToString();
-                    cambioOperando = false;
+                    MessageBox.Show("Error: " + error.Message, "Error de Formato",
+                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                }
+
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error: " + error, "Error General",
+                      MessageBoxButtons.OK,MessageBoxIcon.Error );
+
                 }
 
 
